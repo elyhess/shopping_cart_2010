@@ -39,4 +39,6 @@ class MarketTest < Minitest::Test
     market.add_vendor(vendor3)
 
     assert_equal [vendor1, vendor2, vendor3], market.vendors
+  end
+  
 end
