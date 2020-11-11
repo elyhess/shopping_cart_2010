@@ -16,4 +16,11 @@ class Market
     end
   end
   
+  def vendors_that_sell(item)
+    @vendors.reduce([]) do |container, vendor|
+      container << vendor if vendor.inventory.include?(item)
+      container
+    end
+  end
+  
 end 
