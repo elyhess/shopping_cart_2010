@@ -22,5 +22,21 @@ class Market
       container
     end
   end
+
+  def total_inventory
+    total = Hash.new { |hash, key| hash[key] = {} }
+    @vendors.each do |vendor|
+      vendor.inventory.each do |item, quantity|
+        if total[item][:quantity].nil?
+          total[item][:quantity] = quantity
+          total[item][:vendors] = [vendor]
+        else
+          total[item][:quantity] += quantity
+          total[item][:vendors] << vendor
+        end
+      end
+    end
+    total
+  end                     
   
 end 
