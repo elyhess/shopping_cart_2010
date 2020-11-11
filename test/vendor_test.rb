@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require_relative '../lib/item'
 require_relative '../lib/vendor'
+require_relative '../lib/market'
 
 class VendorTest < Minitest::Test
 
@@ -19,7 +20,7 @@ class VendorTest < Minitest::Test
     item1 = Item.new({name: 'Peach', price: "$0.75"})
 
     assert_equal 0, vendor.check_stock(item1)
-  end                   
+  end
 
   def test_it_stocks_item
     vendor = Vendor.new("Rocky Mountain Fresh")
