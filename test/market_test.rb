@@ -1,5 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
+require 'mocha/minitest'
 require_relative '../lib/item'
 require_relative '../lib/vendor'
 require_relative '../lib/market'
@@ -181,6 +182,13 @@ class MarketTest < Minitest::Test
 
     expected = ["Banana Nice Cream", "Peach", "Peach-Raspberry Nice Cream", "Tomato"]
     assert_equal expected, market.sorted_item_list
+  end
+
+  def test_it_gives_clock 
+    Date.stubs(:today).returns(Date.parse('24/02/2020'))
+
+    market = Market.new("South Pearl Street Farmers Market")   
+    assert_equal "24/02/2020", market.date
   end
 
 
