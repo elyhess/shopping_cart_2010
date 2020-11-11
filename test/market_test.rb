@@ -227,5 +227,4 @@ class MarketTest < Minitest::Test
     assert_equal 60, vendor3.check_stock(item1)
   end
 
-
 end
